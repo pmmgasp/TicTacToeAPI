@@ -1,4 +1,5 @@
 const pool = require("../db")
+const bcrypt = require("bcrypt")
 
 const login = (req, res) => {
     let body = req.body;
@@ -8,12 +9,16 @@ const login = (req, res) => {
         if (results.rowCount === 0) {
             res.status(200).json("O nome de utilizador ou palavra-passe está incorreto");
         } else {
-            if (body.password === results.rows[0].password) {
+            bcrypt.compare(body.password, results.rows[0].password, (err, response) => {
+            if (err) {
+                console.log(err)
+            }
+            if (response) {
                 res.status(200).json(`${results.rows[0].id};${results.rows[0].img}`);
             } else {
                 res.status(200).json("O nome de utilizador ou palavra-passe está incorreto");
             }
-            
+        })
         }
     }).catch(error => {
         res.status(500).json({result: "Ocorreu um erro ao tentar obter o utilizador"});
