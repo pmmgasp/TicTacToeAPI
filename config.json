@@ -1,0 +1,10 @@
+{
+    "PostgreSQL":
+        {
+            "user": "postgres",
+            "host": "monorail.proxy.rlwy.net",
+            "database": "railway",
+            "password": "SUvpEdZoaDCdRcKnPPlNXxVTVrUoPMqF",
+            "port": "13121"
+        }
+}
