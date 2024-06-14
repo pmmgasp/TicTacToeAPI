@@ -2,9 +2,9 @@
     "PostgreSQL":
         {
             "user": "postgres",
-            "host": "monorail.proxy.rlwy.net",
+            "host": "roundhouse.proxy.rlwy.net",
             "database": "railway",
-            "password": "SUvpEdZoaDCdRcKnPPlNXxVTVrUoPMqF",
-            "port": "13121"
+            "password": "fGnelODScMSbewdOHKLoCxFxmCBHRANe",
+            "port": "24815"
         }
 }
