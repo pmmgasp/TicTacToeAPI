@@ -2,9 +2,9 @@
     "PostgreSQL":
         {
             "user": "postgres",
-            "host": "roundhouse.proxy.rlwy.net",
+            "host": "",
             "database": "railway",
-            "password": "fGnelODScMSbewdOHKLoCxFxmCBHRANe",
-            "port": "24815"
+            "password": "",
+            "port": ""
         }
 }
