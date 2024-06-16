@@ -45,9 +45,9 @@ const updateUser = (req, res) => {
     let img = body.img
     
     if (body) {
-        pool.query(`SELECT * FROM users WHERE name = $1`, [username])
+        pool.query(`SELECT * FROM users WHERE name = $1 AND id != $2`, [username, id])
         .then(results => {
-            if (results.rowCount > 0 && results.rows[0].id !== id) {
+            if (results.rowCount > 0) {
                 return res.status(200).json("O nome de utilizador já existe");
             }
 
