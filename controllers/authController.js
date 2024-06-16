@@ -3,13 +3,15 @@ const bcrypt = require("bcrypt")
 
 const login = (req, res) => {
     let body = req.body;
+    let username = body.username
+    let password = body.password
     
-    pool.query(`SELECT * FROM users WHERE name='${body.username}';`).then(results => {
+    pool.query(`SELECT * FROM users WHERE name = $1`, [username]).then(results => {
         //console.log(results.rows)
         if (results.rowCount === 0) {
             res.status(200).json("O nome de utilizador ou palavra-passe está incorreto");
         } else {
-            bcrypt.compare(body.password, results.rows[0].password, (err, response) => {
+            bcrypt.compare(password, results.rows[0].password, (err, response) => {
             if (err) {
                 console.log(err)
             }
